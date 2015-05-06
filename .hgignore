@@ -1,7 +1,6 @@
 syntax: glob
 Assignment2Part1/Assignment2Part1/bin/*
 Assignment2Part1/Assignment2Part1/obj/*
-Assignment2Part1/Assignment2Part1/Assignment2Part1.csproj
 Assignment2Part1/.DS_Store
 Assignment2Part1/Assignment2Part1.sln
 Assignment2Part1/Assignment2Part1.v11.suo
