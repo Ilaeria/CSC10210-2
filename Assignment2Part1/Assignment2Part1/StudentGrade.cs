@@ -18,11 +18,9 @@ namespace Assignment2Part1
         //Constructor
         public StudentGrade(int ident, string last, string first, string grade)
         {
-            // Kai: This was missing
             StudentID = ident;
             LastName = last;
             FirstNames = first;
-            // End Kai
             UnitGrade = grade;
         }
 
