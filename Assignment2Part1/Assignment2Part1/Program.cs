@@ -35,7 +35,7 @@ namespace Assignment2Part1
             string student2string = studentDisplay.ReturnStudent(student2Grade);
             Console.WriteLine(student2string);
 
-            //Check if student ID matches given int
+            //Check if one student ID matches another ID
             Console.WriteLine("Student's ID matches argument: {0}", studentDisplay.CheckID(student1Unit,student2Grade));
 
             Console.ReadLine();
