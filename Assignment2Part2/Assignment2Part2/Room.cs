@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace Assignment2Part2
 {
     // simple class to represent University room data - Part 2 of Assignment
-    class Room
+    public class Room
     {
         private String ident; // e.g. "MG.31"
         private String usage; // e.g. "staff", "kitchen"
