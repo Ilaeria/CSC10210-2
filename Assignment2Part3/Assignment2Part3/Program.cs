@@ -14,13 +14,76 @@ namespace Assignment2Part3
     {
         static void Main(string[] args)
         {
-            Money cost = new Money(23, 17);
-            Money bill = new Money(100);
+            //Creating money amounts to test various operators
+            
+            Money cash1 = new Money(22, 75);
+            Money cash2 = new Money(8);
+            Money bill1 = new Money(22, 75);
+            Money bill2 = new Money(22, 75);
 
-            Console.WriteLine(cost);
-            Console.WriteLine(bill);
+            //Printing money
+            Console.WriteLine("Your available cash: {0}", cash1);
+            Console.WriteLine("Your friend's available cash: {0}", cash2);
+            Console.WriteLine("Your first bill: {0}", bill1);
+            Console.WriteLine("Your second bill: {0}", bill2);
 
+            //Example of invalid money
             Money invalid = new Money(44, 123);
+
+            //Testing operators
+            if (bill1 == bill2)
+            {
+                Console.WriteLine("These bills are for the same amount.");
+            }
+            else
+            {
+                Console.WriteLine("These bills are different amounts.");
+            }
+
+            if (cash1 != cash2)
+            {
+                Console.WriteLine("These cash amounts are different.");
+            }
+            else
+            {
+                Console.WriteLine("These cash amounts are the same.");
+            }
+
+            if (bill1 <= cash1)
+            {
+                Console.WriteLine("You have enough cash for your bill.");
+            }
+            else
+            {
+                Console.WriteLine("You don't have enough cash for your bill!");
+            }
+
+            if (bill2 < cash2)
+            {
+                Console.WriteLine("Your friend has enough cash for their bill.");
+            }
+            else
+            {
+                Console.WriteLine("You friend doesn't have enough cash for their bill!");
+            }
+
+            Money totalCash = cash1 + cash2;
+            Console.WriteLine("Your total cash is: {0}", totalCash);
+
+            Money totalBills = bill1 + bill2;
+            Console.WriteLine("Your total bills are: {0}", totalBills);
+
+            Money balance = totalCash - totalBills;
+            Money outOfCash = new Money(0, 0);
+
+            if (balance == outOfCash)
+            {
+                Console.WriteLine("You're out of money!");
+            }
+            else
+            {
+                Console.WriteLine("Your combined balance after paying all the bills is: {0}", balance);
+            }
 
             Console.ReadLine();
         }
