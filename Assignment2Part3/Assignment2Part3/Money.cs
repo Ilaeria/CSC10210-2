@@ -30,7 +30,6 @@ namespace Assignment2Part3
             catch (MoneyException centsException)
             {
                 Console.WriteLine(centsException.Message);
-                Console.ReadLine();
             }
         }
 
@@ -39,15 +38,144 @@ namespace Assignment2Part3
             Dollars = d;
         }
 
+        //Formatting string override
         public override string ToString()
         {
-            if (Cents < 10)
+            return string.Format("${0}.{1:D2}", Dollars, Cents);
+        }
+
+        //Overloading == and !=
+        public static bool operator ==(Money m1, Money m2)
+        {
+            if (m1.Dollars == m2.Dollars && m1.Cents == m2.Cents)
             {
-                return string.Format("${0}.0{1}", Dollars, Cents);
+                return true;
             }
             else
             {
-                return string.Format("${0}.{1}", Dollars, Cents);
+                return false;
+            }
+        }
+
+        public static bool operator !=(Money m1, Money m2)
+        {
+            if (m1.Dollars != m2.Dollars && m1.Cents != m2.Cents)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        //Overloading < and <=
+        public static bool operator <(Money m1, Money m2)
+        {
+            if (m1.Dollars < m2.Dollars)
+            {
+                return true;
+            }
+            else if (m1.Dollars > m2.Dollars)
+            {
+                return false;
+            }
+            else
+            {
+                return m1.Cents < m2.Cents;
+            }
+        }
+
+        public static bool operator <=(Money m1, Money m2)
+        {
+            if (m1.Dollars <= m2.Dollars)
+            {
+                return true;
+            }
+            else if (m1.Dollars > m2.Dollars)
+            {
+                return false;
+            }
+            else
+            {
+                return m1.Cents <= m2.Cents;
+            }
+        }
+        
+        //Overloading > and >=
+        public static bool operator >(Money m1, Money m2)
+        {
+            if (m1.Dollars > m2.Dollars)
+            {
+                return true;
+            }
+            else if (m1.Dollars < m2.Dollars)
+            {
+                return false;
+            }
+            else
+            {
+                return m1.Cents > m2.Cents;
+            }
+        }
+
+        public static bool operator >=(Money m1, Money m2)
+        {
+            if (m1.Dollars >= m2.Dollars)
+            {
+                return true;
+            }
+            else if (m1.Dollars < m2.Dollars)
+            {
+                return false;
+            }
+            else
+            {
+                return m1.Cents >= m2.Cents;
+            }
+        }
+
+        //Overloading +
+        public static Money operator +(Money m1, Money m2)
+        {
+            int cent = m1.Cents + m2.Cents;
+            int dollar = m1.Dollars + m2.Dollars;
+
+            if (cent > 99)
+            {
+                return new Money(++dollar, cent - 100);
+            }
+            else
+            {
+                return new Money(dollar, cent);
+            }
+        }
+
+        //Overloading -
+        public static Money operator -(Money m1, Money m2)
+        {   
+            int cent = m1.Cents - m2.Cents;
+            int dollar = m1.Dollars - m2.Dollars;
+
+            try
+            {
+                if (dollar < 0)
+                {
+                    throw new MoneyException(1, "Your balance can't be negative!");
+                }
+                else if (cent < 0)
+                {
+                    return new Money(--dollar, cent + 100);
+                }
+                else
+                {
+                    return new Money(dollar, cent);
+                }
+            }
+            catch (MoneyException centsException)
+            {
+                Console.WriteLine(centsException.Message);
+                return new Money(0, 0);
             }
         }
     }
