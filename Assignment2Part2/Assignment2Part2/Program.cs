@@ -39,15 +39,57 @@ namespace Assignment2Part2
             rooms.Add(r09.ID, r09);
             rooms.Add(r10.ID, r10);
 
+            //Run required methods
             DisplayDictionary(rooms);
+
+            DeleteRoom(rooms);
+
+            DisplayRoom(rooms);
 
             Console.ReadLine();
         }
 
+        //Display details of all rooms in the dictionary
         public static void DisplayDictionary(Dictionary<string, Room> displayRooms)
         {
             foreach (KeyValuePair<string, Room> p in displayRooms)
                 Console.WriteLine("Room {0}'s details: {1}", p.Key, p.Value);
+            Console.WriteLine();
         }
+
+        //Delete a given room identifier from the dictionary
+        public static void DeleteRoom(Dictionary<string, Room> deleteRoom)
+        {
+            Console.WriteLine("Which room would you like to delete?");
+            string key = Console.ReadLine();
+            if (deleteRoom.ContainsKey(key))
+            { 
+                deleteRoom.Remove(key);
+                Console.WriteLine("Room {0} removed!", key);
+            }
+            else
+            {
+                Console.WriteLine("Room {0} does not exist!", key);
+            }
+            Console.WriteLine();
+        }
+
+        //Display a specific room
+        public static void DisplayRoom(Dictionary<string, Room> displayRoom)
+        {
+            Console.WriteLine("Which room would you like to display?");
+            string key = Console.ReadLine();
+            Room r;
+            if (displayRoom.TryGetValue(key, out r))
+            {
+                Console.WriteLine(r);
+            }
+            else
+            {
+                Console.WriteLine("Room {0} does not exist!", key);
+            }
+        }
+
+
     }
 }
