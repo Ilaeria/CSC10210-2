@@ -69,6 +69,15 @@ namespace Assignment2Part3
             }
         }
 
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
+        }
+        public override bool Equals(object obj)
+        {
+            return base.Equals(obj);
+        }
+
         //Overloading < and <=
         public static bool operator <(Money m1, Money m2)
         {
@@ -165,7 +174,16 @@ namespace Assignment2Part3
                 }
                 else if (cent < 0)
                 {
-                    return new Money(--dollar, cent + 100);
+                    --dollar;
+                    cent = cent + 100;
+                    if (dollar < 0)
+                    {
+                        throw new MoneyException(1, "Your balance can't be negative!");
+                    }
+                    else
+                    {
+                        return new Money(dollar, cent);
+                    }
                 }
                 else
                 {
@@ -176,6 +194,29 @@ namespace Assignment2Part3
             {
                 Console.WriteLine(centsException.Message);
                 return new Money(0, 0);
+            }
+        }
+
+        //Overloading *
+        public static Money operator *(Money m, int multiplier)
+        {
+            try
+            {
+                if (multiplier < 0)
+                {
+                    throw new MoneyException(2, "You can't multiply by a negative number!");
+                }
+                else
+                {
+                    int cent = m.Cents * multiplier;
+                    int dollar = m.Dollars * multiplier;
+                    return new Money(dollar, cent);
+                }
+            }
+            catch (MoneyException multiplierException)
+            {
+                Console.WriteLine(multiplierException.Message);
+                return m;
             }
         }
     }
