@@ -7,7 +7,6 @@ using System.Threading.Tasks;
 namespace Assignment2Part1
 {
     //Various methods for returning different student attributes
-    
     public class StudentDisplay
     {        
         //constructor
@@ -40,9 +39,9 @@ namespace Assignment2Part1
         }
 
         //Checks an ID matches another ID
-        public bool CheckID(IStudent student1, IStudent student2)
+        public bool CheckID(IStudent student1, int checkInt)
         {
-            if (student1.StudentIdentifier() == student2.StudentIdentifier())
+            if (student1.StudentIdentifier() == checkInt)
             {
                 return true;
             }

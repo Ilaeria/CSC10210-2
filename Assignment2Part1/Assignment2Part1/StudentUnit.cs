@@ -24,7 +24,7 @@ namespace Assignment2Part1
             UnitName = unit;
         }
 
-        //Interface methods
+        //Required interface methods
         public int StudentIdentifier()
         {
             return StudentID;
@@ -38,6 +38,12 @@ namespace Assignment2Part1
         public string OtherNames()
         {
             return FirstNames;
+        }
+
+        //Class-specific return method
+        public string UnitTitle()
+        {
+            return UnitName;
         }
     }
 }
