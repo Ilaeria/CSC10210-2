@@ -29,8 +29,9 @@ namespace Assignment2Part3
 
             //Example of invalid money
             Money invalid = new Money(44, 123);
+            Console.WriteLine();
 
-            //Testing operators
+            //Testing operator ==
             if (bill1 == bill2)
             {
                 Console.WriteLine("These bills are for the same amount.");
@@ -40,6 +41,7 @@ namespace Assignment2Part3
                 Console.WriteLine("These bills are different amounts.");
             }
 
+            //Testing operator !=
             if (cash1 != cash2)
             {
                 Console.WriteLine("These cash amounts are different.");
@@ -48,7 +50,9 @@ namespace Assignment2Part3
             {
                 Console.WriteLine("These cash amounts are the same.");
             }
+            Console.WriteLine();
 
+            //Testing operator <=
             if (bill1 <= cash1)
             {
                 Console.WriteLine("You have enough cash for your bill.");
@@ -58,6 +62,7 @@ namespace Assignment2Part3
                 Console.WriteLine("You don't have enough cash for your bill!");
             }
 
+            //Testing operator <
             if (bill2 < cash2)
             {
                 Console.WriteLine("Your friend has enough cash for their bill.");
@@ -66,13 +71,16 @@ namespace Assignment2Part3
             {
                 Console.WriteLine("You friend doesn't have enough cash for their bill!");
             }
+            Console.WriteLine();
 
+            //Testing operator +
             Money totalCash = cash1 + cash2;
             Console.WriteLine("Your total cash is: {0}", totalCash);
 
             Money totalBills = bill1 + bill2;
             Console.WriteLine("Your total bills are: {0}", totalBills);
 
+            //Testing operator -
             Money balance = totalCash - totalBills;
             Money outOfCash = new Money(0, 0);
 
@@ -84,6 +92,13 @@ namespace Assignment2Part3
             {
                 Console.WriteLine("Your combined balance after paying all the bills is: {0}", balance);
             }
+            Console.WriteLine();
+
+            //Testing operator *
+            int multi = 2;
+            Money testMulti = totalCash * multi;
+            Console.WriteLine("If you multipled your total cash {0} by {1} you would have {2}", 
+                totalCash, multi, testMulti);
 
             Console.ReadLine();
         }
