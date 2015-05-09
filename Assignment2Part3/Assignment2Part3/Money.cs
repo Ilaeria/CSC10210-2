@@ -210,13 +210,20 @@ namespace Assignment2Part3
                 {
                     int cent = m.Cents * multiplier;
                     int dollar = m.Dollars * multiplier;
+
+                    if (cent > 99)
+                    {
+                        dollar = dollar + (Convert.ToInt32(cent / 100));
+                        cent = 0;
+                        Console.WriteLine("This value may have been rounded down to the nearest dollar");
+                    }
                     return new Money(dollar, cent);
                 }
             }
             catch (MoneyException multiplierException)
             {
                 Console.WriteLine(multiplierException.Message);
-                return m;
+                return new Money(0, 0);
             }
         }
     }

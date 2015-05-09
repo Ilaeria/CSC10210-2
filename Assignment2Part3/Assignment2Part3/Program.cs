@@ -95,10 +95,19 @@ namespace Assignment2Part3
             Console.WriteLine();
 
             //Testing operator *
-            int multi = 2;
+            int multi = 4;
             Money testMulti = totalCash * multi;
-            Console.WriteLine("If you multipled your total cash {0} by {1} you would have {2}", 
-                totalCash, multi, testMulti);
+            Money negativeMulti = new Money(0, 0);
+
+            if (testMulti == negativeMulti)
+            {
+                Console.WriteLine();
+            }
+            else
+            {
+                Console.WriteLine("If you multiplied your total cash {0} by {1} you would have {2}",
+                    totalCash, multi, testMulti);
+            }
 
             Console.ReadLine();
         }
