@@ -95,7 +95,7 @@ namespace Assignment2Part3
             Console.WriteLine();
 
             //Testing operator *
-            int multi = 4;
+            int multi = 3;
             Money testMulti = totalCash * multi;
             Money negativeMulti = new Money(0, 0);
 

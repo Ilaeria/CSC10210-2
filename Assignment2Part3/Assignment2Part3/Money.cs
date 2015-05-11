@@ -214,8 +214,7 @@ namespace Assignment2Part3
                     if (cent > 99)
                     {
                         dollar = dollar + (Convert.ToInt32(cent / 100));
-                        cent = 0;
-                        Console.WriteLine("This value may have been rounded down to the nearest dollar");
+                        cent = (Convert.ToInt32(cent % 100));
                     }
                     return new Money(dollar, cent);
                 }
