@@ -1,6 +1,4 @@
-﻿//Class provided with assignment details
-
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Assignment2Part2
 {
+    //Class provided with assignment details
     // simple class to represent University room data - Part 2 of Assignment
     public class Room
     {
