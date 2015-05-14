@@ -102,9 +102,9 @@ namespace Assignment2Part2
                 orderby r.Occupants descending
                 select new { r.ID, r.Size };
 
-            Console.WriteLine("Room Ids and sizes in descending seating capacity:");
+            Console.WriteLine("Room IDs and sizes in descending seating capacity:");
             foreach (var r in roomsSeating)
-                Console.WriteLine("Room ID: {0}, Room Size: {1}", r.ID, r.Size);
+                Console.WriteLine("Room ID: {0}, Room Size: {1}sq. Metres", r.ID, r.Size);
             Console.WriteLine();
         }
 
